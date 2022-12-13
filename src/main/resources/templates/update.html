@@ -6,7 +6,7 @@
 </head>
 <body>
 <h2>Update user</h2>
-<form action="#" th:method="PATCH" th:action="@{/edit}" th:object="${user}">
+<form action="#" th:method="PATCH" th:action="@{/update}" th:object="${user}">
   <br>
   <label for="id">Id</label>
   <input readonly type="number" th:field="*{id}" id="id">
