@@ -17,17 +17,16 @@ public class User {
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "age")
-    private int age;
+    @Column(name = "email")
+    private String email;
 
     public User() {
     }
 
-    public User(Long id, String name, String surname, int age) {
-        this.id = id;
+    public User(String name, String surname, String email) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
+        this.email = email;
     }
 
     public Long getId() {
@@ -54,12 +53,12 @@ public class User {
         this.surname = surname;
     }
 
-    public int getAge() {
-        return age;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -67,13 +66,14 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && age == user.age && Objects.equals(name, user.name)
-                && Objects.equals(surname, user.surname);
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name)
+                && Objects.equals(surname, user.surname)
+                && Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, age);
+        return Objects.hash(id, name, surname, email);
     }
 
     @Override
@@ -82,7 +82,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", age=" + age +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

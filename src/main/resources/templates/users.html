@@ -13,16 +13,16 @@
 <br>
 <table>
     <tr>
-        <th>UserId</th>
-        <th>Name</th>
-        <th>Surname</th>
-        <th>Age</th>
+        <td>UserId</td>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Email</td>
     </tr>
     <tr th:each="user: ${users}">
-        <td th:utext="${user.getId}"></td>
-        <td th:utext="${user.name}"></td>
-        <td th:utext="${user.surname}"></td>
-        <td th:utext="${user.age}"></td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.surname}"></td>
+        <td th:text="${user.email}"></td>
         <td>
             <form th:action="@{'edit/' + ${user.id}}">
                 <input type="submit" value="Edit"/>
