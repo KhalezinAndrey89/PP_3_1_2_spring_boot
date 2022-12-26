@@ -28,7 +28,7 @@ public class UserController {
 
     @PostMapping("/save")
     public String saveNewUser(@ModelAttribute("user") User user) {
-        userService.addUser(user);
+        userService.saveUser(user);
         return "redirect:/";
     }
 
@@ -36,12 +36,6 @@ public class UserController {
     public String showUserEditPage(@PathVariable("id") long id, Model model) {
         model.addAttribute("user", userService.getUser(id));
         return "update";
-    }
-
-    @PostMapping("/update")
-    public String saveChangeUserState(@ModelAttribute("user") User user) {
-        userService.updateUser(user);
-        return "redirect:/";
     }
 
     @PostMapping("/delete/{id}")
